@@ -1,0 +1,41 @@
+{
+  "icons": [
+    {
+      "src": "/icon_512x512.ecb331ad25fc058b39220368e8e0086e.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.a533a3b324e24a4fe67ee0a40ca1ba07.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_256x256.7642fc0da0bee31c99722dae6dcdc04e.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.a3f2f2a500d86d5eb308efbc7f8f5487.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.ca4fece1a5eb77d5ff104fcdb9f05fbc.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.4a27da3af103089320186086b0b41c76.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Note Live - 在线记事本",
+  "short_name": "Note Live",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/#list",
+  "description": "在线临时记事本，在线流程图",
+  "background_color": "#ffffff"
+}

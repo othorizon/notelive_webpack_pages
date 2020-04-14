@@ -1,0 +1,105 @@
+
+.password {
+    white-space: nowrap;
+    width: 200px;
+    min-width: max-content;
+    padding: 10px;
+    height: max-content;
+    text-align: center;
+    background: #ebeef2;
+    border-radius: 8px;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
+    z-index: 9001;
+    font-size: 14px;
+}
+
+.pwd_bg {
+    position: absolute;
+    background-color: black;
+    z-index: 9000;
+    -moz-opacity: 0.7;
+    opacity: .70;
+    filter: alpha(opacity=70);
+}
+
+html, body, #flow_wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#flow_wrapper td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+iframe {
+    border: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%
+}
+
+.toolbar {
+    position: absolute;
+    right: 85px;
+    left: 85px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.toolbar span {
+    float: left;
+    display: block;
+}
+
+.pwd_bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+#controls {
+    position: fixed;
+    height: 25px;
+    bottom: 20px;
+    right: 25px;
+    text-align: center;
+}
+
+#controls a {
+    color: #9ba0a5;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#controls a:hover {
+    color: #84878c;
+}
+
+#controls a#padlock {
+    margin-right: 0;
+    opacity: 0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+    vertical-align: -1px;
+}
+
+#controls a#padlock:hover {
+    opacity: 1;
+    -moz-opacity: 1;
+    filter: alpha(opacity=100);
+}

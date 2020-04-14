@@ -1,0 +1,468 @@
+.update-tips {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+    background: #f9d272;
+    color: #f00;
+    font-size: 14px;
+    text-align: center;
+    z-index: 2000;
+}
+
+.update-tips b {
+    font-weight: bold;
+}
+
+.update-tips .click {
+    cursor: pointer;
+}
+
+.update-tips .update-tip-close {
+    position: absolute;
+    top: 0;
+    right: 85px;
+    color: darkred;
+    cursor: pointer;
+}
+div.card-tabs-bar {
+    border-bottom: 1px solid #eaecef;
+}
+
+div.card-tabs-bar a {
+    padding: 5px;
+    padding-bottom: 1px;
+    border: 1px solid transparent;
+    color: #575b66;
+    text-decoration: none;
+    margin-left: 5px;
+    outline: none;
+}
+
+div.card-tabs-bar a:first-child {
+    margin-left: 10px;
+}
+
+div.card-tabs-bar a:hover {
+    text-decoration: underline;
+}
+
+div.card-tabs-bar a.active {
+    border: 1px solid #eaecef;
+    border-bottom: none;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px 4px 0px 0px;
+    padding-top: 6px;
+    margin-bottom: -10px;
+    background: #fff;
+}
+
+div.card-tabs-bar a.active:hover {
+    text-decoration: none;
+}
+
+div.card-tabs-bar.titles {
+    margin-top: -10px;
+}
+
+div.card-tabs-bar.titles a {
+    font-size: 17px;
+}
+
+div.card-tabs-stack div[data-tab] {
+    display: none;
+    border-top: none;
+    padding: 10px;
+}
+
+div.card-tabs-stack div[data-tab]:first-child {
+    display: block;
+}
+
+
+/*  Blank slate */
+div.card-tabs-bar.inset {
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+div.card-tabs-bar.inset a {
+}
+
+div.card-tabs-bar.inset a.active {
+    background-color: #fafafa;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+div.card-tabs-stack.inset div[data-tab] {
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/*  Green gray slate */
+div.card-tabs-bar.graygreen {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+div.card-tabs-bar.graygreen a {
+    padding: 15px;
+    border-radius: 0px;
+    margin: 0;
+    padding-bottom: 10px;
+    margin-bottom: -2px;
+    font-size: 17px;
+}
+
+div.card-tabs-bar.graygreen a.active {
+    background-color: #fafafa;
+    border-top: 4px solid #2CC185;
+}
+
+div.card-tabs-stack.graygreen div[data-tab] {
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+}
+
+
+/*  Wiki */
+div.card-tabs-bar.wiki {
+    border-bottom: 1px #A7D7F9 solid;
+    border-radius: 0px;
+}
+
+div.card-tabs-bar.wiki a:first-child {
+    border-left: #A7D7F9 1px solid;
+}
+
+div.card-tabs-bar.wiki a {
+    border-radius: 0px;
+    margin: 0;
+    padding-bottom: 10px;
+    margin-bottom: -2px;
+    font-size: 14px;
+    background: #fefefe;
+    background: -moz-linear-gradient(top, #fefefe 0%, #eaf2f8 100%);
+    background: -webkit-linear-gradient(top, #fefefe 0%, #eaf2f8 100%);
+    background: linear-gradient(to bottom, #fefefe 0%, #eaf2f8 100%);
+    border: #A7D7F9 1px solid;
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px #A7D7F9 solid;
+}
+
+div.card-tabs-bar.wiki a.active {
+    border-top: none;
+    background: white;
+    border-bottom: 1px solid white;
+}
+
+div.card-tabs-stack.wiki div[data-tab] {
+    padding: 10px;
+    border: 1px solid #A7D7F9;
+}
+/*
+ * Released under BSD License
+ * Copyright (c) 2014-2015 hizzgdev@163.com
+ *
+ * Project Home:
+ *   https://github.com/hizzgdev/jsmind/
+ */
+
+/* important section */
+.jsmind-inner{position:relative;overflow:auto;width:100%;height:100%;}/*box-shadow:0 0 2px #000;*/
+.jsmind-inner{
+    moz-user-select:-moz-none;
+    -moz-user-select:none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+/* z-index:1 */
+canvas{position:absolute;z-index:1;}
+
+/* z-index:2 */
+jmnodes{position:absolute;z-index:2;background-color:rgba(0,0,0,0);}/*background color is necessary*/
+jmnode{position:absolute;cursor:default;max-width:400px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height: 500px}
+jmexpander{position:absolute;width:11px;height:11px;display:block;overflow:hidden;line-height:12px;font-size:12px;text-align:center;border-radius:6px;border-width:1px;border-style:solid;cursor:pointer;}
+
+/* default theme */
+jmnode{padding:10px;background-color:#fff;color:#333;border-radius:5px;box-shadow:1px 1px 1px #666;font:16px/1.125 Verdana,Arial,Helvetica,sans-serif;}
+jmnode:hover{box-shadow:2px 2px 8px #000;background-color:#ebebeb;color:#333;}
+jmnode.selected{background-color:#11f;color:#fff;box-shadow:2px 2px 8px #000;}
+jmnode.root{font-size:24px;}
+jmexpander{border-color:gray;}
+jmexpander:hover{border-color:#000;}
+
+@media screen and (max-device-width: 1024px) {
+    jmnode{padding:5px;border-radius:3px;font-size:14px;}
+    jmnode.root{font-size:21px;}
+}
+/* primary theme */
+jmnodes.theme-primary jmnode{background-color:#428bca;color:#fff;border-color:#357ebd;}
+jmnodes.theme-primary jmnode:hover{background-color:#3276b1;border-color:#285e8e;}
+jmnodes.theme-primary jmnode.selected{background-color:#f1c40f;color:#fff;}
+jmnodes.theme-primary jmnode.root{}
+jmnodes.theme-primary jmexpander{}
+jmnodes.theme-primary jmexpander:hover{}
+
+/* warning theme */
+jmnodes.theme-warning jmnode{background-color:#f0ad4e;border-color:#eea236;color:#fff;}
+jmnodes.theme-warning jmnode:hover{background-color:#ed9c28;border-color:#d58512;}
+jmnodes.theme-warning jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-warning jmnode.root{}
+jmnodes.theme-warning jmexpander{}
+jmnodes.theme-warning jmexpander:hover{}
+
+/* danger theme */
+jmnodes.theme-danger jmnode{background-color:#d9534f;border-color:#d43f3a;color:#fff;}
+jmnodes.theme-danger jmnode:hover{background-color:#d2322d;border-color:#ac2925;}
+jmnodes.theme-danger jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-danger jmnode.root{}
+jmnodes.theme-danger jmexpander{}
+jmnodes.theme-danger jmexpander:hover{}
+
+/* success theme */
+jmnodes.theme-success jmnode{background-color:#5cb85c;border-color:#4cae4c;color:#fff;}
+jmnodes.theme-success jmnode:hover{background-color:#47a447;border-color:#398439;}
+jmnodes.theme-success jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-success jmnode.root{}
+jmnodes.theme-success jmexpander{}
+jmnodes.theme-success jmexpander:hover{}
+
+/* info theme */
+jmnodes.theme-info jmnode{background-color:#5dc0de;border-color:#46b8da;;color:#fff;}
+jmnodes.theme-info jmnode:hover{background-color:#39b3d7;border-color:#269abc;}
+jmnodes.theme-info jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-info jmnode.root{}
+jmnodes.theme-info jmexpander{}
+jmnodes.theme-info jmexpander:hover{}
+
+/* greensea theme */
+jmnodes.theme-greensea jmnode{background-color:#1abc9c;color:#fff;}
+jmnodes.theme-greensea jmnode:hover{background-color:#16a085;}
+jmnodes.theme-greensea jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-greensea jmnode.root{}
+jmnodes.theme-greensea jmexpander{}
+jmnodes.theme-greensea jmexpander:hover{}
+
+/* nephrite theme */
+jmnodes.theme-nephrite jmnode{background-color:#2ecc71;color:#fff;}
+jmnodes.theme-nephrite jmnode:hover{background-color:#27ae60;}
+jmnodes.theme-nephrite jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-nephrite jmnode.root{}
+jmnodes.theme-nephrite jmexpander{}
+jmnodes.theme-nephrite jmexpander:hover{}
+
+/* belizehole theme */
+jmnodes.theme-belizehole jmnode{background-color:#3498db;color:#fff;}
+jmnodes.theme-belizehole jmnode:hover{background-color:#2980b9;}
+jmnodes.theme-belizehole jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-belizehole jmnode.root{}
+jmnodes.theme-belizehole jmexpander{}
+jmnodes.theme-belizehole jmexpander:hover{}
+
+/* wisteria theme */
+jmnodes.theme-wisteria jmnode{background-color:#9b59b6;color:#fff;}
+jmnodes.theme-wisteria jmnode:hover{background-color:#8e44ad;}
+jmnodes.theme-wisteria jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-wisteria jmnode.root{}
+jmnodes.theme-wisteria jmexpander{}
+jmnodes.theme-wisteria jmexpander:hover{}
+
+/* asphalt theme */
+jmnodes.theme-asphalt jmnode{background-color:#34495e;color:#fff;}
+jmnodes.theme-asphalt jmnode:hover{background-color:#2c3e50;}
+jmnodes.theme-asphalt jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-asphalt jmnode.root{}
+jmnodes.theme-asphalt jmexpander{}
+jmnodes.theme-asphalt jmexpander:hover{}
+
+/* orange theme */
+jmnodes.theme-orange jmnode{background-color:#f1c40f;color:#fff;}
+jmnodes.theme-orange jmnode:hover{background-color:#f39c12;}
+jmnodes.theme-orange jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-orange jmnode.root{}
+jmnodes.theme-orange jmexpander{}
+jmnodes.theme-orange jmexpander:hover{}
+
+/* pumpkin theme */
+jmnodes.theme-pumpkin jmnode{background-color:#e67e22;color:#fff;}
+jmnodes.theme-pumpkin jmnode:hover{background-color:#d35400;}
+jmnodes.theme-pumpkin jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-pumpkin jmnode.root{}
+jmnodes.theme-pumpkin jmexpander{}
+jmnodes.theme-pumpkin jmexpander:hover{}
+
+/* pomegranate theme */
+jmnodes.theme-pomegranate jmnode{background-color:#e74c3c;color:#fff;}
+jmnodes.theme-pomegranate jmnode:hover{background-color:#c0392b;}
+jmnodes.theme-pomegranate jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-pomegranate jmnode.root{}
+jmnodes.theme-pomegranate jmexpander{}
+jmnodes.theme-pomegranate jmexpander:hover{}
+
+/* clouds theme */
+jmnodes.theme-clouds jmnode{background-color:#ecf0f1;color:#333;}
+jmnodes.theme-clouds jmnode:hover{background-color:#bdc3c7;}
+jmnodes.theme-clouds jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-clouds jmnode.root{}
+jmnodes.theme-clouds jmexpander{}
+jmnodes.theme-clouds jmexpander:hover{}
+
+/* asbestos theme */
+jmnodes.theme-asbestos jmnode{background-color:#95a5a6;color:#fff;}
+jmnodes.theme-asbestos jmnode:hover{background-color:#7f8c8d;}
+jmnodes.theme-asbestos jmnode.selected{background-color:#11f;color:#fff;}
+jmnodes.theme-asbestos jmnode.root{}
+jmnodes.theme-asbestos jmexpander{}
+jmnodes.theme-asbestos jmexpander:hover{}
+
+.password {
+    white-space: nowrap;
+    width: 200px;
+    min-width: max-content;
+    padding: 10px;
+    height: max-content;
+    text-align: center;
+    background: #ebeef2;
+    border-radius: 8px;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
+    z-index: 9001;
+    font-size: 14px;
+}
+
+.pwd_bg {
+    position: absolute;
+    background-color: black;
+    z-index: 9000;
+    -moz-opacity: 0.7;
+    opacity: .70;
+    filter: alpha(opacity=70);
+}
+
+.tab_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.card-tabs-bar {
+    height: 23px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.card-tabs-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-item {
+    position: absolute;
+    top: 23px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#jsmind_container {
+    border: solid 1px #ccc;
+    background: #f4f4f4;
+}
+
+.pwd_bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+#controls {
+    position: fixed;
+    height: 25px;
+    bottom: 20px;
+    right: 25px;
+    text-align: center;
+    z-index: 2000;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+#controls::-webkit-scrollbar {
+    display: none;
+}
+
+#controls a {
+    color: #9ba0a5;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#controls a:hover {
+    color: #84878c;
+}
+
+#controls a#padlock {
+    margin-right: 0;
+    opacity: 0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+    vertical-align: -1px;
+}
+
+#controls a#padlock:hover {
+    opacity: 1;
+    -moz-opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+#jsmind_tools {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    bottom: 60px;
+    border: 1px solid grey;
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 2px grey;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 2000;
+}
+#jsmind_tools button,label,input,.jsmind_tools_div{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 160px;
+    height: 20px;
+}
+#jsmind_tools hr{
+    margin-top: 20px;
+    width: 100%;
+    height: 1px;
+    border: none;
+    border-top: 1px dashed grey;
+}

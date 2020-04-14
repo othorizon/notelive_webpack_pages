@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mind - note live</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<link rel="manifest" href="/manifest.e992675c708995cc3363f1ba1bc81d9e.json" /><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#fff"><meta name="application-name" content="Note Live"><link rel="apple-touch-icon" sizes="57x57" href="/icons-5482/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/icons-5482/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/icons-5482/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/icons-5482/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/icons-5482/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/icons-5482/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/icons-5482/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/icons-5482/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/icons-5482/apple-touch-icon-180x180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Note Live"><link rel="icon" type="image/png" sizes="32x32" href="/icons-5482/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/icons-5482/favicon-16x16.png"><link rel="shortcut icon" href="/icons-5482/favicon.ico"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-5482/apple-touch-startup-image-320x460.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-5482/apple-touch-startup-image-640x920.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-5482/apple-touch-startup-image-640x1096.png"><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-5482/apple-touch-startup-image-750x1294.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-5482/apple-touch-startup-image-1182x2208.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-5482/apple-touch-startup-image-1242x2148.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-5482/apple-touch-startup-image-748x1024.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-5482/apple-touch-startup-image-768x1004.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-5482/apple-touch-startup-image-1496x2048.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-5482/apple-touch-startup-image-1536x2008.png"><link href="/./assets/mind-61e1.css" rel="stylesheet"></head>
+<body>
+<div class="tab_box">
+    <div class="tab-item" data-tab="Mind">
+        <div id="jsmind_container" class="tab-item"></div>
+        <div id="controls" class="toolbar">
+            <span id="tip" style="color:darkgrey;width: max-content;display: flex;">&emsp;</span>
+
+            <span id="editDoc" style="display: none">
+                <a href="javascript:" title="编辑文件">
+                <span style="color: red; text-decoration: underline"><b>编辑文件</b></span></a>
+            </span>
+            <a id="jsmind_toolsBtn" href="javascript:"><span
+                    style="color: lightsalmon; text-decoration: underline">设置</span></a>
+            <a id="shortcutHelp" href="javascript:">快捷键</a>
+            <a href="#help" target="_blank">帮助</a>
+        </div>
+        <div id="shortcutHelpDiv"
+             style="display:none;pointer-events: none;position: absolute;right: 20px;bottom:60px;color: grey">
+            <pre>新建子主题： tab</pre>
+            <pre>新建同级主题： enter</pre>
+            <pre>编辑选中主题： 单击、 space</pre>
+            <pre>删除选中主题： delete</pre>
+            <pre>切换主题： ↑/↓/←/→</pre>
+            <pre>折叠/展开子主题： alt+↓</pre>
+            <pre>打开主题内容： 双击、ctrl/meta+enter</pre>
+            <pre>关闭标签： 双击标签</pre>
+            <pre>关闭当前标签： alt+w</pre>
+            <pre>返回Mind标签： alt+1、 alt+a</pre>
+            <pre>开关设置界面： alt+e</pre>
+            <pre>保存(会自动保存)： ctrl/meta+s</pre>
+        </div>
+        <div id="jsmind_tools" style="display: none">
+            <button onclick="jmUtils.mind_screen_shot();">截图</button>
+            <button readonlyhide onclick="jmUtils.save_freemind_file();">导出freemind(.mm)</button>
+            <input type="file" id="select_freemind_file" onchange="jmUtils.load_freemind();"
+                   style="filter:alpha(opacity=0);opacity:0;width: 1px;height: 0;">
+            <button readonlyhide onclick="jmUtils.open_freemind();">导入freemind(.mm)</button>
+            <div class="jsmind_tools_div">
+                <label for="jm_theme" style="width: max-content">风格:</label>
+                <select style="width: max-content" id="jm_theme" onchange="jmUtils.set_theme(this.value);">
+                    <option value="primary">primary</option>
+                    <option value="warning">warning</option>
+                    <option value="danger">danger</option>
+                    <option value="success">success</option>
+                    <option value="info">info</option>
+                    <option value="greensea">greensea</option>
+                    <option value="nephrite">nephrite</option>
+                    <option value="belizehole">belizehole</option>
+                    <option value="wisteria">wisteria</option>
+                    <option value="asphalt">asphalt</option>
+                    <option value="orange">orange</option>
+                    <option value="pumpkin">pumpkin</option>
+                    <option value="pomegranate">pomegranate</option>
+                    <option value="clouds">clouds</option>
+                    <option value="asbestos">asbestos</option>
+                </select>
+            </div>
+            <div class="jsmind_tools_div">
+                <span>缩放:</span>
+                <button id="jsmind_tools_zoom_out" style="width: 30px">-</button>
+                <button id="jsmind_tools_zoom_in" style="width: 30px">+</button>
+            </div>
+            <div id="nodeSettings" style="display: none">
+                <hr>
+                <div class="jsmind_tools_div">
+                    <label for="set_node_type_select" style="width: max-content">主题类型:</label>
+                    <select id="set_node_type_select" style="width: max-content">
+                        <option value="note">笔记</option>
+                        <option value="flow">流程图</option>
+                        <option value="app/todo">app/todo</option>
+                        <option value="url">链接</option>
+                    </select>
+                </div>
+                <input id="url_type_node_value"/>
+            </div>
+            <hr>
+            <button readonlyhide id="modify_password">修改密码</button>
+            <button readonlyhide id="delete_data" style="margin-top: 20px"><span style="color: red">删除Mind</span></button>
+        </div>
+    </div>
+</div>
+
+<div id="password_div" style="display: none">
+    <div class="pwd_bg"></div>
+    <div class="password">
+        <div style="margin-top: 10px">
+            <label id="password_tip" for="password" style="color: black">编辑密码：</label>
+            <input id="password" maxlength="8" type="password">
+            <button id="password_btn">编辑</button>
+            <button id="readonly_btn">只读</button>
+        </div>
+    </div>
+</div>
+<div id="new_password_div" style="display: none">
+    <div class="pwd_bg"></div>
+    <div class="password">
+        <div style="float: right;margin-right: 10px">
+            <span id="new_password_cancel" style="color:lightsalmon;font-size: 20px ;cursor: pointer">X</span>
+        </div>
+        <div style="margin-top: 10px;text-align: left;margin-left: 10px">
+            <div>
+                <label for="lockType" title="可读模式无需输入密码即可查阅但是无法修改">加密模式(?)：</label>
+                <select id="lockType">
+                    <option value="rw">私有</option>
+                    <option value="-w">可读</option>
+                </select>
+            </div>
+            <div style="margin-top: 10px">
+                <label id="new_password_tip" for="new_password"
+                       style="color: black;margin-left: 5px">
+                    输入新密码（留空删除密码）：</label><br>
+                <input id="new_password" maxlength="8" type="password">
+                <button id="new_password_btn" style="margin-left: 20px">修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="display_box" style="display: none">
+    <div id="note_template" class="tab-item">
+        <iframe frameborder="0" style="width: 100%;height: 100%;"></iframe>
+    </div>
+</div>
+<div id="testWidth"
+     style="visibility: hidden;height: 0; width:min-content;white-space: pre;word-break:keep-all;font:16px/1.125 Verdana,Arial,Helvetica,sans-serif; "></div>
+<script type="text/javascript" src="/js/mind-61e1.js"></script></body>
+</html>
